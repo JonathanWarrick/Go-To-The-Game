@@ -1,0 +1,1 @@
+Playing around with the SeatGeek API (http://platform.seatgeek.com/) and Chartist.js (http://gionkunz.github.io/chartist-js/) to analyze real-time ticket pricing data for upcoming sporting events.

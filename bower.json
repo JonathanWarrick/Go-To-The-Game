@@ -1,0 +1,9 @@
+{
+  "name": "seatgeek",
+  "version": "0.0.1",
+  "dependencies": {
+    "chartist": "~0.2.1",
+    "angular": "~1.2.26",
+    "angular-ui-router": "~0.2.11"
+  }
+}

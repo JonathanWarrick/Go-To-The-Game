@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+  <head>
+    <link rel="stylesheet" href="bower_components/chartist/libdist/chartist.min.css">
+    <script src="bower_components/chartist/libdist/chartist.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  </head>
+  <body>
+  	<h1>TEST!</h1>
+  	<div ng-controller="TestController">
+  	  <label>Team Name:</label>
+  	  <input type="text" ng-model="teamName" placeholder="Enter a team name here"></input>
+  	  <button ng-click="getTeamInfo()">Submit!</button>
+  	  <hr>
+  	  <h1>Team Name Is: {{teamName}}!</h1>
+  	</div>
+  	<div class="ct-chart ct-major-eleventh"></div>
+  	<script src="app.js"></script>
+  </body>
+</html>
