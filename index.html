@@ -10,7 +10,7 @@
   	<h1>Go To The Game!</h1>
   	<div ng-controller="TestController">
       NFL Team:
-      <select ng-model="selectedTeam" ng-options="team.name for team in teamData">
+      <select ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
         <option value="">-- choose NFL Team --</option>
       </select>
   	  <button ng-click="getTeamInfo()">Submit!</button>
