@@ -3,6 +3,11 @@ var express    = require('express'); 		// call express
 var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var http = require('http');
+var mongoose = require('mongoose');
+var teamDB = require('./team.controller.js');
+
+// establish connection with mongo
+mongoose.connect('mongodb://localhost/gotothegame-dev');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -17,6 +22,29 @@ var port = process.env.PORT || 5555; 		// set our port
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+// djgc4qqvphhks2yxfefrera9
+
+// var sportsdata_nfl = require('sportsdata').NFL;
+
+// sportsdata_nfl.init('t', 1, 'djgc4qqvphhks2yxfefrera9', '2014', 'REG');
+
+// sportsdata_nfl.getStandings(function(error, data) {		
+// 	var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
+// 	console.log(standings);
+// 	data.standings.conference.forEach(function(conf) {
+// 		conf.division.forEach(function(div) {
+// 			div.team.forEach(function(tm) {
+// 				var team = {
+// 					market: tm['$'].market,
+// 					teamName: tm['$'].name,
+// 					winPct: tm.overall[0]['$'].wpct
+// 				};
+// 				teamDB.saveNewTeam(team);
+// 			});
+// 		});
+// 	});
+// });
 
 // http.get('http://api.seatgeek.com/2/events?performers.slug=new-york-giants', function(response) {
 // 	console.log(response);

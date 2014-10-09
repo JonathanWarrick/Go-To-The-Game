@@ -7,19 +7,14 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   </head>
   <body>
-  	<h1>TEST!</h1>
+  	<h1>Go To The Game!</h1>
   	<div ng-controller="TestController">
       NFL Team:
-        <span  class="nullable">
-          <select ng-model="selectedTeam" ng-options="team.name for team in testTeamData">
-            <option value="">-- choose NFL Team --</option>
-          </select>
-        </span><br/>
-  	  <label>Team Name:</label>
-  	  <input type="text" ng-model="teamName" placeholder="Enter a team name here"></input>
+      <select ng-model="selectedTeam" ng-options="team.name for team in teamData">
+        <option value="">-- choose NFL Team --</option>
+      </select>
   	  <button ng-click="getTeamInfo()">Submit!</button>
   	  <hr>
-  	  <h1>Team Name Is: {{selectedTeam.name}}!</h1>
   	</div>
   	<div class="ct-chart ct-major-eleventh"></div>
   	<script src="app.js"></script>
