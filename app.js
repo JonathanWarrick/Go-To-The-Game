@@ -7,6 +7,12 @@ angular.module('testApp', [
 		series: []
 	};
 
+	// console.log teamInfo to see if it works
+	$http.get('/api/getTeamData')
+	.success(function(teamData) {
+		console.log('here is the teamData', teamData);
+	});
+
 	$scope.teamData = TeamData.teamData;
 
 	console.log($scope.teamData);

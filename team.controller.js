@@ -11,3 +11,14 @@ exports.saveNewTeam = function(teamInfo) {
 		}
 	});
 };
+
+exports.getTeamData = function(request, response) {
+	console.log('made it into getTeamData on DB handler side');
+	Team.find(function(err, teams) {
+		if (err) {
+			response.send(500);
+		} else {
+			return response.json(200, teams);
+		}
+	});
+};

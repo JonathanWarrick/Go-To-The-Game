@@ -16,6 +16,11 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/'));
 
+app.get('/api/getTeamData', function(request, response) {
+	console.log('made it into express');
+	teamDB.getTeamData(request, response);
+});
+
 var port = process.env.PORT || 5555; 		// set our port
 
 // START THE SERVER
