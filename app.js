@@ -14,6 +14,7 @@ angular.module('testApp', [
 
 	$http.get('/api/getTeamData')
 	  .success(function(teamData) {
+	  	console.log('teamData is', teamData);
 	  	for (var team in teamData) {
 	  		var teamName = teamData[team].market + ' ' + teamData[team].teamName;
 	  		$scope.winLossData[teamName] = teamData[team].winPct;
