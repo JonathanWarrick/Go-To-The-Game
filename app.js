@@ -7,9 +7,20 @@ angular.module('testApp', [
 		series: []
 	};
 
+	$scope.testTeamData = [
+		{
+			name: "New York Giants",
+			query: "new-york-giants"
+		},
+		{
+			name: "New York Jets",
+			query: "new-york-jets"
+		}
+	];
+
 	$scope.getTeamInfo = function() {
 		console.log('test', $scope.teamName);
-		var formattedString = 'http://api.seatgeek.com/2/events?performers.slug=' + $scope.teamName;
+		var formattedString = 'http://api.seatgeek.com/2/events?performers.slug=' + $scope.selectedTeam.query;
 		$http.get(formattedString)
 		.success(function(data) {
 			console.log('got team data:', data);
