@@ -1,22 +1,75 @@
 <!DOCTYPE html>
 <html ng-app="testApp">
   <head>
+    <style>
+      .stuffy {
+        background-color: #FFEC8C;
+      }
+      .ct-legend {
+        margin-top: -35px;
+        /*margin-left: 300px;*/
+      }
+      .avgPrice {
+        color: #d70206;
+        font-size: 5em;
+        /*vertical-align: center;*/
+      }
+      .wtdPrice {
+        color: #F05B4f;
+        font-size: 5em;
+      }
+    </style>
     <link rel="stylesheet" href="bower_components/chartist/libdist/chartist.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css"> -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <script src="bower_components/chartist/libdist/chartist.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   </head>
   <body>
-  	<h1>Go To The Game!</h1>
-  	<div ng-controller="TestController">
-      NFL Team:
-      <select ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
-        <option value="">-- choose NFL Team --</option>
-      </select>
-  	  <button ng-click="getTeamInfo()">Submit!</button>
+    <center>
+    <div class="jumbotron">
+      <h1>Go To The Game!</h1>
+      <a class="btn" href="#" style="float: right;"><i class="fa fa-github-square fa-2x"></i></a>
+      <a class="btn" href="#" style="float: right;"><i class="fa fa-envelope fa-2x"></i></a>
+      <a class="btn" href="#" style="float: right;"><i class="fa fa-wheelchair fa-2x"></i></a>
+      <!-- <a href="javascript:void(0)" class="btn btn-default btn-fab btn-raised icon-material-share" style="float: right; margin: 10px;"></a> -->
+    </div>
+<!--     <div ng-controller="DropdownCtrl">
+    <div class="btn-group" dropdown is-open="status.isopen">
+      <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+        Button dropdown <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li ng-repeat="team in teamList">{{team}}</li>
+      </ul>
+    </div>
+  </div> -->
+  	<div class="stuffy" ng-controller="TestController">
+
+      <div class="col-md-1"></div>
+      <div class="col-md-8 chooseTeam">
+        <select class="form-control" ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
+          <option value="">-- choose NFL Team --</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+  	    <button type="button" ng-click="getTeamInfo()" class="btn btn-primary">Show Ticket Stats!</button>
+      </div>   
+      <div class="col-md-1"></div>
   	  <hr>
-  	</div>
-  	<div class="ct-chart ct-major-eleventh"></div>
+
+      <div class="ct-chart ct-major-eleventh"></div>
+    </br>
+      <center>
+      <div class="ct-legend" ng-show="showLegend">
+        <div><span class="avgPrice">•</span>Avg. Price Per Game (Home Game)
+        <span class="wtdPrice">•</span>Weighted Price Per Game (Combined Record)</div>
+      </div>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>

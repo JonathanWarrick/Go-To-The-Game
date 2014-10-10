@@ -16,13 +16,17 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/'));
 
-app.get('/api/getTeamData', function(request, response) {
-	// console.log('made it into express');
-	getNFLData(function(teams) {
-		console.log(teams);
-		response.send(200, teams);
-	});
-});
+// USE FOR DEPLOYMENT
+// app.get('/api/getTeamData', function(request, response) {
+// 	// console.log('made it into express');
+// 	getNFLData(function(teams) {
+// 		console.log(teams);
+// 		response.send(200, teams);
+// 	});
+// });
+
+// USE FOR DEVELOPEMTN
+app.get('/api/getTeamData', teamDB.getTeamData);
 
 var port = process.env.PORT || 5555; 		// set our port
 

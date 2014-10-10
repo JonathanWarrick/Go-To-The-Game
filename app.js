@@ -1,5 +1,6 @@
 angular.module('testApp', [
-	'ui.router'
+	'ui.router',
+	'ui.bootstrap'
 ])
 .controller('TestController', function($scope, $http) {
 	// data that will be used to populate chart
@@ -41,14 +42,16 @@ angular.module('testApp', [
 				var opponent;
 				event.performers.forEach(function(performer) {
 					if (!performer.home_team) {
-						opponent = performer.name;
+						opponent = performer.name.trim();
 					}
 				});
 				$scope.data.labels.push(opponent);
 				var teamWinPct = $scope.winLossData[$scope.selectedTeam];
-				var opptWinPct = $scope.winLossData[opponent];
-				var weightedWinPct = (teamWinPct + opptWinPct) / 2;
-				console.log(weightedWinPct);
+				console.log('teamWin', teamWinPct);
+				var oppWinPct = +$scope.winLossData[opponent];
+				console.log('oppWinPct', oppWinPct)
+				var weightedWinPct = (+teamWinPct + oppWinPct) / 2;
+				console.log('weightedWinPct', weightedWinPct);
 				temp_price_by_pct.push(weightedWinPct * event.stats.average_price);
 			});
 
@@ -56,9 +59,31 @@ angular.module('testApp', [
 			$scope.data.series.push(temp_price_by_pct);
 
 			Chartist.Line('.ct-chart', $scope.data);
+			$scope.showLegend = true;
 		})
 		.error(function(data) {
 			console.error('got an error sad', error);
 		});
 	};
+})
+.controller('DropdownCtrl', function ($scope) {
+  $scope.items = [
+    'The first choice!',
+    'And another choice for you.',
+    'but wait! A third!'
+  ];
+
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    console.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
 });
