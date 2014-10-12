@@ -2,16 +2,18 @@
 <html ng-app="testApp">
   <head>
     <link rel="stylesheet" href="bower_components/chartist/libdist/chartist.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/lib/sweet-alert.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css"> -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <script src="bower_components/chartist/libdist/chartist.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
     <style>
+      .modal-content {
+        height: 500px;
+        margin-top: 120px;
+      }
       .stuffy {
         margin-top: -20px;
         /*background-color: #FFEC8C;*/
@@ -51,21 +53,15 @@
         <!-- <a href="javascript:void(0)" class="btn btn-default btn-fab btn-raised icon-material-share" style="float: right; margin: 10px;"></a> -->
     </div>
 
-    <div class="modal hide fade" id="myModal">
-      <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
-        <h3>Modal header</h3>
-      </div>
-      <div class="modal-body">
-        <p>One fine body…</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn">Close</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
-      </div>
+    <div ng-controller="ModalDemoCtrl" ng-init="open('lg')" class="test">
+      <script type="text/ng-template" src="myModalContent.html">
+      </script>
     </div>
 
+
+
   	<div class="stuffy" ng-controller="TestController">
+      <div class="restOfStuff">
         <div class="col-md-1"></div>
         <div class="col-md-8 chooseTeam">
           <select class="form-control" ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
@@ -78,22 +74,18 @@
         <div class="col-md-1"></div>
     	  <hr>
 
-      <div class="ct-chart ct-major-eleventh"></div>
-    </br>
-      <center>
-      <div class="ct-legend" ng-show="showLegend">
-        <div><span class="avgPrice">•</span>Avg. Price Per Game (Home Game)
-        <span class="wtdPrice">•</span>Weighted Price Per Game (Combined Record)</div>
+        <div class="ct-chart ct-major-eleventh"></div>
+        </br>
+        <center>
+          <div class="ct-legend" ng-show="showLegend">
+            <div>
+              <span class="avgPrice">•</span>Avg. Price Per Game (Home Game)
+              <span class="wtdPrice">•</span>Weighted Price Per Game (Combined Record)
+            </div>
+          </div>
+        </center>
       </div>
-
-
     </div>
-
-
-
-    <script>swal('Your game has ended!');
-      // swal("Welcome to Go To The Game!", "Choose your favorite NFL team and see how ticket prices are trending for upcoming home games!", "success");
-    </script>
     <script src="app.js"></script>
   </body>
 </html>
