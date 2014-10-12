@@ -87,3 +87,4 @@ angular.module('testApp', [
     $scope.status.isopen = !$scope.status.isopen;
   };
 });
+
