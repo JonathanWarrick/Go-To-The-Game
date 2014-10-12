@@ -35,6 +35,8 @@ var port = process.env.PORT || 5555; 		// set our port
 app.listen(port);
 console.log('Magic happens on port ' + port);
 
+// Get NFL SportsData
+
 var sportsdata_nfl = require('sportsdata').NFL;
 
 sportsdata_nfl.init('t', 1, 'djgc4qqvphhks2yxfefrera9', '2014', 'REG');
@@ -63,6 +65,7 @@ var getNFLData = function(callback) {
 	});
 };
 
+// Get NHL SportsData
 
 // http.get('http://api.seatgeek.com/2/events?performers.slug=new-york-giants', function(response) {
 // 	console.log(response);
