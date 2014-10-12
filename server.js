@@ -38,34 +38,88 @@ console.log('Magic happens on port ' + port);
 // Get NFL SportsData
 
 var sportsdata_nfl = require('sportsdata').NFL;
+var sportsdata_nhl = require('sportsdata').NHL;
+var sportsdata_nba = require('sportsdata').NBA;
 
 sportsdata_nfl.init('t', 1, 'djgc4qqvphhks2yxfefrera9', '2014', 'REG');
+sportsdata_nhl.init('t', 3, '6xw497kzfsf76sh35wu9sjmc', '2014', 'REG');
+sportsdata_nba.init('t', 3, 'tbrzr7gkbedhndkx7kckck2h', '2013', 'REG');
 
-var getNFLData = function(callback) {
+// var getNFLData = function(callback) {
+// 	// console.log('getNFLData called in function');
+// 	var teams = [];
+// 	sportsdata_nfl.getStandings(function(error, data) {		
+// 		// console.log('in getStandings');
+// 		var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
+// 		console.log(standings);
+// 		data.standings.conference.forEach(function(conf) {
+// 			conf.division.forEach(function(div) {
+// 				div.team.forEach(function(tm) {
+// 					var team = {
+// 						market: tm['$'].market,
+// 						teamName: tm['$'].name,
+// 						winPct: tm.overall[0]['$'].wpct
+// 					};
+// 					// console.log('team is', team);
+// 					teams.push(team);
+// 				});
+// 			});
+// 		});
+// 	callback(teams);
+// 	});
+// };
+
+// var getNHLData = function() {
+// 	// console.log('getNFLData called in function');
+// 	var teams = [];
+// 	sportsdata_nhl.getStandings(function(error, data) {		
+// 		// console.log('in getStandings');
+// 		var standings = data.league.season[0].conference[0].division[0].team[0];
+// 		console.log(standings);
+// 		data.league.season[0].conference.forEach(function(conf) {
+// 			conf.division.forEach(function(div) {
+// 				div.team.forEach(function(tm) {
+// 					var team = {
+// 						market: tm['$'].market,
+// 						teamName: tm['$'].name,
+// 						winPct: tm['$'].win_pct
+// 					};
+// 					console.log('team is', team);
+// 					teams.push(team);
+// 				});
+// 			});
+// 		});
+// 	});
+// };
+
+// getNHLData();
+
+var getNBAData = function() {
 	// console.log('getNFLData called in function');
 	var teams = [];
-	sportsdata_nfl.getStandings(function(error, data) {		
+	sportsdata_nba.getStandings(function(error, data) {		
 		// console.log('in getStandings');
-		var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
+		var standings = data.league.season[0].conference[0].division[0].team[0];
 		console.log(standings);
-		data.standings.conference.forEach(function(conf) {
-			conf.division.forEach(function(div) {
-				div.team.forEach(function(tm) {
-					var team = {
-						market: tm['$'].market,
-						teamName: tm['$'].name,
-						winPct: tm.overall[0]['$'].wpct
-					};
-					// console.log('team is', team);
-					teams.push(team);
-				});
-			});
-		});
-	callback(teams);
+		// data.league.season[0].conference.forEach(function(conf) {
+		// 	conf.division.forEach(function(div) {
+		// 		div.team.forEach(function(tm) {
+		// 			var team = {
+		// 				market: tm['$'].market,
+		// 				teamName: tm['$'].name,
+		// 				winPct: tm['$'].win_pct
+		// 			};
+		// 			console.log('team is', team);
+		// 			teams.push(team);
+		// 		});
+		// 	});
+		// });
 	});
 };
 
-// Get NHL SportsData
+getNBAData();
+
+
 
 // http.get('http://api.seatgeek.com/2/events?performers.slug=new-york-giants', function(response) {
 // 	console.log(response);
