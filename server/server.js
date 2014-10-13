@@ -41,8 +41,8 @@ var sportsdata_nfl = require('sportsdata').NFL;
 // var sportsdata_nba = require('sportsdata').NBA;
 
 sportsdata_nfl.init('t', 1, process.env.NFLKEY, '2014', 'REG');
-// sportsdata_nhl.init('t', 3, '6xw497kzfsf76sh35wu9sjmc', '2014', 'REG');
-// sportsdata_nba.init('t', 3, 'tbrzr7gkbedhndkx7kckck2h', '2013', 'REG');
+// sportsdata_nhl.init('t', 3, process.env.NHLKEY, '2014', 'REG');
+// sportsdata_nba.init('t', 3, process.env.NBAKEY, '2013', 'REG');
 
 var getNFLData = function(callback) {
 	// console.log('getNFLData called in function');
