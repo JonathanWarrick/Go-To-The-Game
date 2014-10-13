@@ -40,7 +40,7 @@ var sportsdata_nfl = require('sportsdata').NFL;
 // var sportsdata_nhl = require('sportsdata').NHL;
 // var sportsdata_nba = require('sportsdata').NBA;
 
-sportsdata_nfl.init('t', 1, 'djgc4qqvphhks2yxfefrera9', '2014', 'REG');
+sportsdata_nfl.init('t', 1, NFLKEY, '2014', 'REG');
 // sportsdata_nhl.init('t', 3, '6xw497kzfsf76sh35wu9sjmc', '2014', 'REG');
 // sportsdata_nba.init('t', 3, 'tbrzr7gkbedhndkx7kckck2h', '2013', 'REG');
 
