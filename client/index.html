@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="goToTheGameApp">
+  <head>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="lib/bower_components/chartist/libdist/chartist.min.css">
+    <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+
+    <!-- JS Files -->
+    <script src="lib/bower_components/chartist/libdist/chartist.min.js"></script>
+    <script src="lib/bower_components/angular/angular.js"></script>
+    <script src="lib/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  </head>
+  
+  <body>
+
+    <center>
+      <div class="jumbotron">
+        <h1 class="title">Go To The Game!</h1>
+        <a class="btn" href="#" style="float: right;"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a class="btn" href="#" style="float: right;"><i class="fa fa-github-square fa-2x"></i></a>
+        <a class="btn" href="#" style="float: right;"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+      <div ng-controller="ModalDemoCtrl" ng-init="open('lg')" class="test">
+        <script type="text/ng-template" src="modal/modalContent.html">
+        </script>
+      </div>
+
+    	<div class="stuffy" ng-controller="GoToTheGameController">
+        <div class="restOfStuff">
+          <div class="col-md-1"></div>
+          <div class="col-md-8 chooseTeam">
+            <select class="form-control" ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
+              <option value="">-- Choose NFL Team --</option>
+            </select>
+          </div>
+          <div class="col-md-2 chooseTeam">
+      	    <button type="button" ng-click="getTeamInfo()" class="btn btn-primary">Show Ticket Stats!</button>
+          </div>   
+          <div class="col-md-1"></div>
+      	  <hr>
+
+          <div class="ct-chart ct-major-eleventh"></div>
+          </br>
+          <center>
+            <div class="ct-legend" ng-show="showLegend">
+              <div>
+                <span class="avgPrice">•</span>Avg. Price Per Game (Home Game)
+                <span class="wtdPrice">•</span>Weighted Price Per Game (Combined Record)
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+
+    <script src="app.js"></script>
+    <script src="main/main.controller.js"></script>
+    <script src="modal/modal.controller.js"></script>
+  </body>
+</html>

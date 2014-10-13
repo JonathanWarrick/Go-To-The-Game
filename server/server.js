@@ -4,7 +4,7 @@ var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var http = require('http');
 var mongoose = require('mongoose');
-var teamDB = require('./team.controller.js');
+var teamDB = require('./database/team.controller.js');
 
 // establish connection with mongo
 mongoose.connect('mongodb://localhost/gotothegame-dev');
@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/gotothegame-dev');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '../../client'));
 
 // USE FOR DEPLOYMENT
 // app.get('/api/getTeamData', function(request, response) {

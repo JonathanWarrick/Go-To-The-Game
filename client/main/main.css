@@ -1,0 +1,61 @@
+.form-control {
+  /*font-family: 'Nothing You Could Do';*/
+}
+.jumbotron {
+  background-color: #FFD34E;
+}
+.modal-content {
+  padding: 40px;
+  margin-top: 120px;
+}
+.title {
+  position: relative;
+  top: 15px;
+  color: white;
+  font-family: 'Permanent Marker';
+}
+.modal-header, .modal-footer {
+  position: relative;
+  /*padding-bottom: 20px;*/
+}
+.modal-header {
+  top: -20px;
+}
+.modal-footer button {
+  padding: 20px;
+  margin-bottom: -20px;
+  margin-top: 10px;
+}
+.stuffy {
+  margin-top: -20px;
+  background-color: #FFFAD5;
+}
+.chooseTeam {
+  z-index: 5;
+  opacity: 0%;
+}
+.jumbotron {
+  /*margin-bottom: 0px;*/
+  padding-top: 1px;
+}
+.ct-legend {
+  margin-top: -70px;
+  /*margin-left: 300px;*/
+  font-family: 'Permanent Marker';
+}
+.ct-chart {
+  /*margin: 0 10px;*/
+  top: -30px;
+  background-color: #FFFAD5;
+}
+.avgPrice {
+  color: #d70206;
+  font-size: 5em;
+  /*font-family: 'Permanent Marker';*/
+  /*vertical-align: center;*/
+}
+.wtdPrice {
+  color: #F05B4f;
+  font-size: 5em;
+  /*font-family: 'Permanent Marker';*/
+}

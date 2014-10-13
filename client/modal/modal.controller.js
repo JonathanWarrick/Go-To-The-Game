@@ -1,13 +1,15 @@
-angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+angular.module('goToTheGameApp')
+.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
 
   $scope.items = ['item1', 'item2', 'item3'];
 
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
+      templateUrl: 'modal/modalContent.html',
       controller: 'ModalInstanceCtrl',
       size: size,
+      backdrop: false,
       resolve: {
         items: function () {
           return $scope.items;
@@ -21,12 +23,7 @@ angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($scope
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-});
-
-// Please note that $modalInstance represents a modal window (instance) dependency.
-// It is not the same as the $modal service used above.
-
-angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+}).controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
   $scope.items = items;
   $scope.selected = {
