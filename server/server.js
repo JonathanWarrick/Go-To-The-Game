@@ -3,11 +3,11 @@ var express    = require('express'); 		// call express
 var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var http = require('http');
-var mongoose = require('mongoose');
-var teamDB = require('./database/team.controller.js');
+// var mongoose = require('mongoose');
+// var teamDB = require('./database/team.controller.js');
 
 // establish connection with mongo
-mongoose.connect('mongodb://localhost/gotothegame-dev');
+// mongoose.connect('mongodb://localhost/gotothegame-dev');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
