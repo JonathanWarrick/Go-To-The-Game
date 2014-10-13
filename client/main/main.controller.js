@@ -12,14 +12,11 @@ angular.module('goToTheGameApp')
 
 	$http.get('/api/getTeamData')
 	  .success(function(teamData) {
-	  	console.log('teamData is', teamData);
 	  	for (var team in teamData) {
 	  		var teamName = teamData[team].market + ' ' + teamData[team].teamName;
 	  		$scope.winLossData[teamName] = teamData[team].winPct;
 	  		$scope.teamList.push(teamName);
 	  	}
-	  	console.log('teamList is', $scope.teamList);
-	  	console.log('winLossData is', $scope.winLossData);
 	  });
 
 	$scope.getTeamInfo = function() {
@@ -28,7 +25,6 @@ angular.module('goToTheGameApp')
 		var formattedString = 'http://api.seatgeek.com/2/events?performers[home_team].slug=' + $scope.selectedTeam.toLowerCase().replace('.', '').split(' ').join('-');
 		$http.get(formattedString)
 		.success(function(data) {
-			console.log('got team data:', data);
 
 			// average ticket price
 			var temp_avg_price = [];
@@ -43,12 +39,7 @@ angular.module('goToTheGameApp')
 					}
 				});
 				$scope.data.labels.push(opponent);
-				var teamWinPct = $scope.winLossData[$scope.selectedTeam];
-				console.log('teamWin', teamWinPct);
 				var oppWinPct = +$scope.winLossData[opponent];
-				console.log('oppWinPct', oppWinPct)
-				var weightedWinPct = (+teamWinPct + oppWinPct) / 2;
-				console.log('weightedWinPct', weightedWinPct);
 				temp_price_by_pct.push(oppWinPct * event.stats.average_price);
 			});
 

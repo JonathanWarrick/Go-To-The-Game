@@ -20,7 +20,6 @@ app.use(express.static(__dirname + '../../client'));
 app.get('/api/getTeamData', function(request, response) {
 	// console.log('made it into express');
 	getNFLData(function(teams) {
-		console.log(teams);
 		response.send(200, teams);
 	});
 });
@@ -51,7 +50,6 @@ var getNFLData = function(callback) {
 	sportsdata_nfl.getStandings(function(error, data) {		
 		// console.log('in getStandings');
 		var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
-		console.log(standings);
 		data.standings.conference.forEach(function(conf) {
 			conf.division.forEach(function(div) {
 				div.team.forEach(function(tm) {
