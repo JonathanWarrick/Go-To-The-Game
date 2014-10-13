@@ -62,4 +62,4 @@ angular.module('goToTheGameApp')
 			console.error('got an error sad', error);
 		});
 	};
-})
+});

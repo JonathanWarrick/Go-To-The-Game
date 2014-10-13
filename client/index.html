@@ -16,46 +16,50 @@
   </head>
   
   <body>
-
     <center>
+      <!-- Site Header -->
       <div class="jumbotron">
         <h1 class="title">Go To The Game!</h1>
-        <a class="btn" href="#" style="float: right;"><i class="fa fa-linkedin-square fa-2x"></i></a>
-        <a class="btn" href="#" style="float: right;"><i class="fa fa-github-square fa-2x"></i></a>
-        <a class="btn" href="#" style="float: right;"><i class="fa fa-envelope fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/jonathanwarrick" class="btn" href="#" style="float: right;"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="https://github.com/JonathanWarrick" class="btn" href="#" style="float: right;"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="mailto:jonathan.warrick@gmail.com?subject=Go To The Game"class="btn" href="#" style="float: right;"><i class="fa fa-envelope fa-2x"></i></a>
       </div>
+
+      <!-- Modal/Pop-Up -->
       <div ng-controller="ModalDemoCtrl" ng-init="open('lg')" class="test">
         <script type="text/ng-template" src="modal/modalContent.html">
         </script>
       </div>
 
-    	<div class="stuffy" ng-controller="GoToTheGameController">
-        <div class="restOfStuff">
-          <div class="col-md-1"></div>
-          <div class="col-md-8 chooseTeam">
-            <select class="form-control" ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
-              <option value="">-- Choose NFL Team --</option>
-            </select>
-          </div>
-          <div class="col-md-2 chooseTeam">
-      	    <button type="button" ng-click="getTeamInfo()" class="btn btn-primary">Show Ticket Stats!</button>
-          </div>   
-          <div class="col-md-1"></div>
-      	  <hr>
-
-          <div class="ct-chart ct-major-eleventh"></div>
-          </br>
-          <center>
-            <div class="ct-legend" ng-show="showLegend">
-              <div>
-                <span class="avgPrice">•</span>Avg. Price Per Game (Home Game)
-                <span class="wtdPrice">•</span>Weighted Price Per Game (Combined Record)
-              </div>
-            </div>
-          </center>
+    	<div class="mainBody" ng-controller="GoToTheGameController">
+        <!-- Team Selector -->
+        <div class="col-md-1"></div>
+        <div class="col-md-8 chooseTeam">
+          <select class="form-control" ng-model="selectedTeam" ng-options="team for team in teamList | orderBy: team">
+            <option value="">-- Choose NFL Team --</option>
+          </select>
         </div>
+        <div class="col-md-2 chooseTeam">
+    	    <button type="button" ng-click="getTeamInfo()" class="btn btn-primary">Show Ticket Stats!</button>
+        </div>   
+        <div class="col-md-1"></div>
+    	  <hr>
+
+        <!-- Chart Body -->
+        <div class="ct-chart ct-major-eleventh"></div>
+        </br>
+        <center>
+          <!-- Chart Legend -->
+          <div class="ct-legend" ng-show="showLegend">
+            <div>
+              <span class="avgPrice">•</span>Average Price Per Game (Home Game)
+              <span class="wtdPrice">•</span>Weighted Price Per Game (Opponent's Record)
+            </div>
+          </div>
+        </center>
       </div>
 
+    <!-- Angular files -->
     <script src="app.js"></script>
     <script src="main/main.controller.js"></script>
     <script src="modal/modal.controller.js"></script>
