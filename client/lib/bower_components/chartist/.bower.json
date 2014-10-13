@@ -1,0 +1,36 @@
+{
+  "name": "chartist",
+  "version": "0.2.1",
+  "main": [
+    "./libdist/chartist.min.js",
+    "./libdist/chartist.min.css"
+  ],
+  "devDependencies": {
+    "snap.svg": "~0.2.0",
+    "foundation": "~5.1.1",
+    "highlightjs": "~8.0.0",
+    "compass-mixins": "~1.0.0",
+    "codemirror": "~4.5.0",
+    "base64": "~0.3.0"
+  },
+  "ignore": [
+    ".*",
+    "Gruntfile.js",
+    "package.json",
+    "node_modules",
+    "sitedist",
+    "source",
+    "test"
+  ],
+  "homepage": "https://github.com/gionkunz/chartist-js",
+  "_release": "0.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.1",
+    "commit": "6b8bd0556ebc35af830239a87e44651cfb1346b7"
+  },
+  "_source": "git://github.com/gionkunz/chartist-js.git",
+  "_target": "~0.2.1",
+  "_originalSource": "chartist",
+  "_direct": true
+}
