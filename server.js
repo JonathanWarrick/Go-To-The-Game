@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/'));
 // 	});
 // });
 
-// USE FOR DEVELOPEMTN
+// USE FOR DEVELOPMENT
 app.get('/api/getTeamData', teamDB.getTeamData);
 
 var port = process.env.PORT || 5555; 		// set our port
@@ -94,30 +94,30 @@ sportsdata_nba.init('t', 3, 'tbrzr7gkbedhndkx7kckck2h', '2013', 'REG');
 
 // getNHLData();
 
-var getNBAData = function() {
-	// console.log('getNFLData called in function');
-	var teams = [];
-	sportsdata_nba.getStandings(function(error, data) {		
-		// console.log('in getStandings');
-		var standings = data.league.season[0].conference[0].division[0].team[0];
-		console.log(standings);
-		// data.league.season[0].conference.forEach(function(conf) {
-		// 	conf.division.forEach(function(div) {
-		// 		div.team.forEach(function(tm) {
-		// 			var team = {
-		// 				market: tm['$'].market,
-		// 				teamName: tm['$'].name,
-		// 				winPct: tm['$'].win_pct
-		// 			};
-		// 			console.log('team is', team);
-		// 			teams.push(team);
-		// 		});
-		// 	});
-		// });
-	});
-};
+// var getNBAData = function() {
+// 	// console.log('getNFLData called in function');
+// 	var teams = [];
+// 	sportsdata_nba.getStandings(function(error, data) {		
+// 		// console.log('in getStandings');
+// 		var standings = data.league.season[0].conference[0].division[0].team[0];
+// 		console.log(standings);
+// 		data.league.season[0].conference.forEach(function(conf) {
+// 			conf.division.forEach(function(div) {
+// 				div.team.forEach(function(tm) {
+// 					var team = {
+// 						market: tm['$'].market,
+// 						teamName: tm['$'].name,
+// 						winPct: tm['$'].win_pct
+// 					};
+// 					console.log('team is', team);
+// 					teams.push(team);
+// 				});
+// 			});
+// 		});
+// 	});
+// };
 
-getNBAData();
+// getNBAData();
 
 
 

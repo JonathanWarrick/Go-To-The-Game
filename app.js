@@ -52,7 +52,7 @@ angular.module('testApp', [
 				console.log('oppWinPct', oppWinPct)
 				var weightedWinPct = (+teamWinPct + oppWinPct) / 2;
 				console.log('weightedWinPct', weightedWinPct);
-				temp_price_by_pct.push(weightedWinPct * event.stats.average_price);
+				temp_price_by_pct.push(oppWinPct * event.stats.average_price);
 			});
 
 			$scope.data.series.push(temp_avg_price);
