@@ -17,16 +17,16 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '../../client'));
 
 // USE FOR DEPLOYMENT
-// app.get('/api/getTeamData', function(request, response) {
-// 	// console.log('made it into express');
-// 	getNFLData(function(teams) {
-// 		console.log(teams);
-// 		response.send(200, teams);
-// 	});
-// });
+app.get('/api/getTeamData', function(request, response) {
+	// console.log('made it into express');
+	getNFLData(function(teams) {
+		console.log(teams);
+		response.send(200, teams);
+	});
+});
 
 // USE FOR DEVELOPMENT
-app.get('/api/getTeamData', teamDB.getTeamData);
+// app.get('/api/getTeamData', teamDB.getTeamData);
 
 var port = process.env.PORT || 5555; 		// set our port
 
@@ -38,36 +38,36 @@ console.log('Magic happens on port ' + port);
 // Get NFL SportsData
 
 var sportsdata_nfl = require('sportsdata').NFL;
-var sportsdata_nhl = require('sportsdata').NHL;
-var sportsdata_nba = require('sportsdata').NBA;
+// var sportsdata_nhl = require('sportsdata').NHL;
+// var sportsdata_nba = require('sportsdata').NBA;
 
 sportsdata_nfl.init('t', 1, 'djgc4qqvphhks2yxfefrera9', '2014', 'REG');
-sportsdata_nhl.init('t', 3, '6xw497kzfsf76sh35wu9sjmc', '2014', 'REG');
-sportsdata_nba.init('t', 3, 'tbrzr7gkbedhndkx7kckck2h', '2013', 'REG');
+// sportsdata_nhl.init('t', 3, '6xw497kzfsf76sh35wu9sjmc', '2014', 'REG');
+// sportsdata_nba.init('t', 3, 'tbrzr7gkbedhndkx7kckck2h', '2013', 'REG');
 
-// var getNFLData = function(callback) {
-// 	// console.log('getNFLData called in function');
-// 	var teams = [];
-// 	sportsdata_nfl.getStandings(function(error, data) {		
-// 		// console.log('in getStandings');
-// 		var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
-// 		console.log(standings);
-// 		data.standings.conference.forEach(function(conf) {
-// 			conf.division.forEach(function(div) {
-// 				div.team.forEach(function(tm) {
-// 					var team = {
-// 						market: tm['$'].market,
-// 						teamName: tm['$'].name,
-// 						winPct: tm.overall[0]['$'].wpct
-// 					};
-// 					// console.log('team is', team);
-// 					teams.push(team);
-// 				});
-// 			});
-// 		});
-// 	callback(teams);
-// 	});
-// };
+var getNFLData = function(callback) {
+	// console.log('getNFLData called in function');
+	var teams = [];
+	sportsdata_nfl.getStandings(function(error, data) {		
+		// console.log('in getStandings');
+		var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
+		console.log(standings);
+		data.standings.conference.forEach(function(conf) {
+			conf.division.forEach(function(div) {
+				div.team.forEach(function(tm) {
+					var team = {
+						market: tm['$'].market,
+						teamName: tm['$'].name,
+						winPct: tm.overall[0]['$'].wpct
+					};
+					// console.log('team is', team);
+					teams.push(team);
+				});
+			});
+		});
+	callback(teams);
+	});
+};
 
 // var getNHLData = function() {
 // 	// console.log('getNFLData called in function');
