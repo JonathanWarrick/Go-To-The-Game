@@ -116,34 +116,3 @@ var getNFLData = function(callback) {
 // };
 
 // getNBAData();
-
-
-
-// http.get('http://api.seatgeek.com/2/events?performers.slug=new-york-giants', function(response) {
-// 	console.log(response);
-// 	// var test = JSON.parse(response);
-// 	// console.log(test);
-// });
-
-// var httpOptions = {
-// 	host: 'api.seatgeek.com',
-// 	path: '/2/events?performers.slug=new-york-giants'
-// };
-
-// var buffer = '';
-
-// http.get(httpOptions, function (resp) {
-//   resp.on('data', function (chunk) {
-//     buffer += chunk;
-//   });
-//   resp.on('end', function () {
-//   	var data = JSON.parse(buffer);
-//     var games = [];
-//     data.events.forEach(function(game) {
-//     	games.push(game);
-//     });
-//     games.forEach(function(game) {
-//     	console.log('highest ticket price is', game.stats.highest_price);
-//   	});
-//   });
-// });
