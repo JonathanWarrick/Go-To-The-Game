@@ -45,10 +45,8 @@ sportsdata_nfl.init('t', 1, process.env.NFLKEY, '2014', 'REG');
 // sportsdata_nba.init('t', 3, process.env.NBAKEY, '2013', 'REG');
 
 var getNFLData = function(callback) {
-	// console.log('getNFLData called in function');
 	var teams = [];
 	sportsdata_nfl.getStandings(function(error, data) {		
-		// console.log('in getStandings');
 		var standings = data.standings.conference[0].division[0].team[0].overall[0]['$'].wpct;
 		data.standings.conference.forEach(function(conf) {
 			conf.division.forEach(function(div) {
@@ -58,7 +56,6 @@ var getNFLData = function(callback) {
 						teamName: tm['$'].name,
 						winPct: tm.overall[0]['$'].wpct
 					};
-					// console.log('team is', team);
 					teams.push(team);
 				});
 			});
