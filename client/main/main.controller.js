@@ -50,7 +50,7 @@ angular.module('goToTheGameApp')
 			$scope.showLegend = true;
 		})
 		.error(function(data) {
-			console.error('got an error sad', error);
+			console.error('Error is:', error);
 		});
 	};
 });
